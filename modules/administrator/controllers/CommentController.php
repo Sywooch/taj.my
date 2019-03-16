@@ -2,8 +2,10 @@
 
 namespace app\modules\administrator\controllers;
 
+use function var_export;
 use Yii;
 use app\models\ReviewComment;
+use app\models\Review;
 use app\models\ReviewCommentContent;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
@@ -37,9 +39,18 @@ class CommentController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => ReviewComment::find()->alias('comment')->orderBy(['comment.status' => SORT_ASC, 'comment.create_date'=> SORT_DESC])->joinWith('author')->joinWith('review')->joinWith('reviewCommentContent'),
+            'query' => ReviewComment::find()->alias('comment')->orderBy(['comment.status' => SORT_ASC])->joinWith('author')->joinWith('review')->joinWith('reviewCommentContent'),
         ]);
+//        $test = new Review();
+//        $test2 = $test::find()->all();
+//        var_export($test2);die;
 
+//        $test = new ActiveDataProvider([
+//            'query' => ReviewComment::find()->alias('comment')->joinWith("review")
+//        ]);
+//        echo '<pre>';
+//        var_export($dataProvider->models);
+//        echo '</pre>';die;
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);

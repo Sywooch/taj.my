@@ -15,24 +15,42 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
 
-
+    <?php
+//                    echo "<pre>";
+//                    var_export($dataProvider->models);
+//                    echo "</pre>";
+//                    die;
+    ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-			[
-				'label' => 'Review',
-				'attribute' => 'purchaseObjectInfo',
-				'format' => 'raw', 
-				'value' => function ($data) {
-					return '<a href="/adminpanel/review/update?id=84'.$data->review->id.'">
-					<img width="40" src="'.$data->review->getImage().'">'.
-					StringHelper::truncate($data->review->title_en, 40).
-					'</a>';
-				}
-			],
+//			[
+//				'label' => 'Review',
+//				'options' => ['class' => 'grid-view1'],
+//				'attribute' => 'purchaseObjectInfo',
+//				'format' => 'raw',
+//				'value' => function ($data) {
+//
+////                echo "<pre>";
+//////                var_export($data);
+////                    var_export($data->reviews);
+////                echo "</pre>";
+////                die;
+//                    if($data->review==null){
+//                        $img = '';
+//                    }else{
+//                        $img = $data->review->getImage();
+//                    }
+//					return '<a href="/adminpanel/review/update?id=84'.$data->review->id.'">
+//				            <img width="40" src="'.$img.'">'.
+//					        StringHelper::truncate($data->review->title_en, 40).
+//					        '</a>';
+//                   // return '<a href="/adminpanel/review/update?id=84'.$data->review->id.'">link</a>';
+//				}
+//			],
             //'lang',
 			[
 				'label' => 'User',
