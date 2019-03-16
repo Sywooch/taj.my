@@ -39,6 +39,15 @@ AppAsset::register($this);
 		enable_page_level_ads: true
 	  });
 	</script>
+<!--    Гугл тэг-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136313284-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136313284-1');
+    </script>
 </head>
 <?php $this->beginBody() ?>
 <?= $content ?>
