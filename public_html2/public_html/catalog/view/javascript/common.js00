@@ -1,0 +1,233 @@
+$(document).ready(function() {
+	$('.menu-toggle').click(function(){
+		$(this).next().slideToggle();
+	});
+	$('.hcg').click(function(){
+		$.post( "ajax.php", { action: 'model-home', mark: $(this).attr('data-id') })
+			.done(function( data ) {
+			$('.hcr').html(data);
+			$('html, body').stop().animate({
+				'scrollTop': $('.hcr').offset().top
+				}, 1500, 'swing');
+		});
+	});
+	$('body').on('click', '.mhcb', function(){
+		$.post( "ajax.php", { action: 'motor-home', model: $(this).attr('data-id') })
+			.done(function( data ) {
+			$('.hcr').html(data);
+			$('html, body').stop().animate({
+				'scrollTop': $('.hcr').offset().top
+				}, 1500, 'swing');
+		});
+	});
+	$('body').on('click', '.mohcb', function(){ 
+	window.location = 'index.php?route=product/catalog&filter_model='+$(this).attr('data-idm')+'&filter_motor='+$(this).attr('data-id');
+	});
+	$('.filter-select').chosen();
+	$('[name="filter-mark"]').bind('change', function() {
+		$('[name="filter-model"], [name="filter-year"], [name="filter-motor"]').empty();
+		$('.filter-botton').removeClass('active-f');
+		$('.filter-item').removeClass('active');
+		$('[name="filter-model"]').parent().addClass('active');
+		$.post( "ajax.php", { action: 'model', mark: $(this).val() })
+			.done(function( data ) {
+			$('[name="filter-model"]').html(data);
+			$(".filter-select").trigger("chosen:updated");
+		  });
+	});
+	$('[name="filter-model"]').bind('change', function() {
+		$('[name="filter-year"], [name="filter-motor"]').empty();
+		$('.filter-botton').removeClass('active-f');
+		$('.filter-item').removeClass('active');
+		$('[name="filter-year"]').parent().addClass('active');
+		$.post( "ajax.php", { action: 'year', model: $(this).val(), mark: $('[name="filter-mark"]').val() })
+			.done(function( data ) {
+			$('[name="filter-year"]').html(data);
+			$(".filter-select").trigger("chosen:updated");
+		  });
+	});
+	$('[name="filter-year"]').bind('change', function() {
+		$('[name="filter-motor"]').empty();
+		$('.filter-botton').removeClass('active-f');
+		$('.filter-item').removeClass('active');
+		$('[name="filter-motor"]').parent().addClass('active');
+		$.post( "ajax.php", { action: 'motor', year: $(this).val(), mark: $('[name="filter-mark"]').val(), model: $('[name="filter-model"]').val() })
+			.done(function( data ) {
+			$('[name="filter-motor"]').html(data);
+			$(".filter-select").trigger("chosen:updated");
+		  });
+	});
+
+	$('[name="filter-motor"]').bind('change', function() {
+		$('.filter-botton').addClass('active-f');
+	});
+	$('body').on('click', '.filter-botton.active-f', function() {
+	$.post( "ajax.php", {action: 'go', motor: $('[name="filter-motor"]').val(), year: $('[name="filter-year"]').val(), model: $('[name="filter-model"]').val(), mark: $('[name="filter-mark"]').val() })
+	.done(function( data ) {
+	var FilterUrl = '/index.php?route=product/catalog&year='+$('[name="filter-year"]').val()+'&model='+$('[name="filter-model"]').val()+'&mark='+$('[name="filter-mark"]').val()+'&motor='+$('[name="filter-motor"]').val();
+	 window.location = FilterUrl;
+	 });
+	})
+	$('body').on('click', '.filter-botton.filter-cancel', function() {
+	$.post( "ajax.php", {action: 'unset' })
+	.done(function( data ) {
+	 window.location.reload();
+	 });
+	});
+	$('body').on('click', '[name="fast_button"]', function(){
+			var phone = $('[name="fast_phone"]').val();
+			$.post( "order.php", {phone: phone })
+			.done(function( data ) {
+					$.colorbox({html: '<div class="fust-success">Спасибо за оформлление заказа!<br/>В ближайщее время с Вами свяжиться менеджер.</div>', onClosed: function(){window.location.reload();}})
+			});
+		
+	});
+	
+	$('body').on('click', '.one-submit', function(){
+	var phone = $('[name="one-phone"]').val();
+	$.ajax({
+		url: 'index.php?route=checkout/fastorder/send',
+		type: 'post',
+		data: 'phone=' + phone,
+		success: function(data) { 
+		if(data == 1) {
+			$.colorbox({html: '<div class="fust-success">Спасибо за оформлление заказа!<br/>В ближайщее время с Вами свяжиться менеджер.</div>', onClosed: function(){window.location.reload();}});
+		}
+		}
+	});
+	});
+	/* Search */
+	$('.button-search').bind('click', function() {
+		url = $('base').attr('href') + 'index.php?route=product/search';
+				 
+		var search = $('input[name=\'search\']').attr('value');
+		
+		if (search) {
+			url += '&search=' + encodeURIComponent(search);
+		}
+		
+		location = url;
+	});
+	
+	$('#header input[name=\'search\']').bind('keydown', function(e) {
+		if (e.keyCode == 13) {
+			url = $('base').attr('href') + 'index.php?route=product/search';
+			 
+			var search = $('input[name=\'search\']').attr('value');
+			
+			if (search) {
+				url += '&search=' + encodeURIComponent(search);
+			}
+			
+			location = url;
+		}
+	});
+	
+	/* Ajax Cart */
+	$('#cart > .heading a').live('click', function() {
+		$('#cart').addClass('active');
+		
+		$('#cart').load('index.php?route=module/cart #cart > *');
+		
+		$('#cart').live('mouseleave', function() {
+			$(this).removeClass('active');
+		});
+	});
+	
+	
+	$('.success img, .warning img, .attention img, .information img').live('click', function() {
+		$(this).parent().fadeOut('slow', function() {
+			$(this).remove();
+		});
+	});	
+});
+
+function getURLVar(key) {
+	var value = [];
+	
+	var query = String(document.location).split('?');
+	
+	if (query[1]) {
+		var part = query[1].split('&');
+
+		for (i = 0; i < part.length; i++) {
+			var data = part[i].split('=');
+			
+			if (data[0] && data[1]) {
+				value[data[0]] = data[1];
+			}
+		}
+		
+		if (value[key]) {
+			return value[key];
+		} else {
+			return '';
+		}
+	}
+} 
+
+function addToCart(product_id, quantity) {
+	quantity = typeof(quantity) != 'undefined' ? quantity : 1;
+
+	$.ajax({
+		url: 'index.php?route=checkout/cart/add',
+		type: 'post',
+		data: 'product_id=' + product_id + '&quantity=' + quantity,
+		dataType: 'json',
+		success: function(json) {
+			$('.success, .warning, .attention, .information, .error').remove();
+			
+			if (json['redirect']) {
+				location = json['redirect'];
+			}
+			
+			if (json['success']) {
+				$.colorbox({html: '<div class="success">' + json['success'] + '<div class="success-buttons clearfix"><a onclick="$.colorbox.close();" class="s-close">Назад к выбору</a><a href="index.php?route=checkout/simplecheckout">Оформить заказ</a></div></div>'});		
+				$('#cart-total').html(json['total']);
+			}	
+		}
+	});
+}
+function addToWishList(product_id) {
+	$.ajax({
+		url: 'index.php?route=account/wishlist/add',
+		type: 'post',
+		data: 'product_id=' + product_id,
+		dataType: 'json',
+		success: function(json) {
+			$('.success, .warning, .attention, .information').remove();
+						
+			if (json['success']) {
+				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+				
+				$('.success').fadeIn('slow');
+				
+				$('#wishlist-total').html(json['total']);
+				
+				$('html, body').animate({ scrollTop: 0 }, 'slow');
+			}	
+		}
+	});
+}
+
+function addToCompare(product_id) { 
+	$.ajax({
+		url: 'index.php?route=product/compare/add',
+		type: 'post',
+		data: 'product_id=' + product_id,
+		dataType: 'json',
+		success: function(json) {
+			$('.success, .warning, .attention, .information').remove();
+						
+			if (json['success']) {
+				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+				
+				$('.success').fadeIn('slow');
+				
+				$('#compare-total').html(json['total']);
+				
+				$('html, body').animate({ scrollTop: 0 }, 'slow'); 
+			}	
+		}
+	});
+}

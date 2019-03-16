@@ -1,0 +1,36 @@
+.autopic{width:90px!important; height:90px!important; right:20px; top:0px; position:absolute; background-position:center center!important; background-repeat:no-repeat!important;}
+
+.secnodeBlock { width: 95%; margin: 0 auto; }
+.secnodeBlock>.secnode { float: left; width: 24%; min-height: 100px; margin: 0.5%; background-color: #ffffff; background-position: top left; background-repeat: no-repeat; border: 1px solid #ffffff; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.4); -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.4); box-shadow: 2px 2px 8px rgba(0,0,0,0.4); }
+.secnodeBlock>.secnode:hover { -webkit-filter: brightness(1.075); filter: brightness(1.075);  transition:0.3s;-moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2); -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2); box-shadow: 2px 2px 8px rgba(0,0,0,0.2);}	
+.secnodeBlock>.secnode a { width: 100%; height: 98px; display: block; font-family: Arial; padding: 0px!important; font-size: 12px; text-align: center; }
+.secnodeBlock>.secnode:hover a {text-decoration:underline;}
+.secnodeBlock>.secnode a b { display: inline-block; font-size: 18px; text-decoration: none; padding: 20px 5px 20px 124px; width: 100%; vertical-align: middle; text-align: left; }
+
+.tbcars{padding:10px 20px 10px 20px!important;}
+.tbtracks{padding:10px 20px 10px 20px!important;}
+.tbcars:focus {border:0px!important; box-shadow:none!important; outline:#ffffff solid 0px!important;}
+.tbtracks:focus {border:0px!important; box-shadow:none!important; outline:#ffffff solid 0px!important;}
+#tabs{background:none!important; border:0px!important; padding:0px!important;}
+#tabs ul{background:none!important; border-left:0px!important; border-top:0px!important; border-right:0px!important; }
+
+#tree{margin-left:20px;}
+
+@media (max-width: 1365px) {
+	.secnodeBlock>.secnode a b { padding: 20px 5px 20px 115px;}
+	.secnodeBlock>.secnode a { height: 90px;}
+	.secnodeBlock>.secnode	{ background-position: center left; background-size: 120px; min-height: 60px;  margin-bottom: 10px;}
+}
+@media (max-width: 1200px) {
+	.secnodeBlock>.secnode {width:32%; background-size: 40%;     background-position: center top;}
+	.secnodeBlock>.secnode a b {    padding: 80px 5px 0 5px; text-align:center; }
+	.secnodeBlock>.secnode a {height:115px;}
+	h1.entry-title { width: calc( 100% - 200px ); background: none; color: #55a9cb; height: auto; }
+	h1.entry-title:before, h1.entry-title:after {width:0; height:0; display:none;}
+}
+@media (max-width: 900px) {
+	.secnodeBlock>.secnode {width:49%;min-width:300px;}
+}
+@media (max-width: 767px) {
+	h1.entry-title { box-shadow: 0px 1px 24px 3px #000; padding-right: 100px; width: calc( 100% - 30px); min-height:90px;}
+}

@@ -1,0 +1,301 @@
+/*FILTER*/
+
+.filter-title
+{
+	height:54px;
+	margin-top:1px;
+	margin-left:-12px;
+	background:url(../image/chose.png);
+	background-repeat:no-repeat;
+	color:transparent;
+	width:720px;
+	text-indent:-999px;
+	overflow:hidden
+}
+
+.filter-left
+{
+	float:left;
+	width:53%;
+	text-align:center;
+	min-width:480px;
+    z-index: 5;
+}
+
+.filter-right {
+    float: right;
+    width: 47%;
+    position: absolute;
+    right: 0;
+    top: 10%;
+    z-index: 0;
+}
+
+.filter-botton.active.double
+{
+	width:190px;
+	font-size:20px;
+	line-height:22px;
+	padding:6px 6px 6px 0;
+	border-top-left-radius:0;
+	border-bottom-left-radius:0;
+	display:inline-block
+}
+
+.filter-botton2
+{
+	height:57px;
+	margin:0 auto;
+	background-color:#596288;
+	color:#fff;
+	font-weight:700;
+	text-transform:uppercase;
+	border-radius:30px;
+	cursor:pointer;
+	margin-top:0;
+	border:1px solid transparent;
+	width:190px;
+	font-size:20px;
+	line-height:22px;
+	padding:6px;
+	border-top-right-radius:0;
+	border-bottom-right-radius:0;
+	display:inline-block;
+	background:#01487e
+}
+
+.filter-botton2:hover
+{
+	background-color:#55a9cb!important;
+	transition:all .2s ease-in-out
+}
+
+.filter-botton2.hidden
+{
+	transition:all .2s ease-in-out;
+	width:0;
+	opacity:0;
+	padding:0;
+	margin:0
+}
+
+
+.filters > div
+{
+	display:inline-block;
+	vertical-align:top;
+	margin-bottom:10px
+}
+
+.filter-content
+{
+	text-align:center;
+	margin-top:30px
+}
+
+.filter-botton
+{
+	transition:all .2s ease-in-out;
+	width:380px;
+	height:57px;
+	margin:0 auto;
+	background-color:#596288;
+	font-size:25px;
+	color:#fff;
+	font-weight:700;
+	text-transform:uppercase;
+	line-height:57px;
+	border-radius:30px;
+	cursor:pointer;
+	margin-top:0;
+	border:1px solid transparent
+}
+
+.filter-botton.active:hover
+{
+	background-color:#55a9cb!important;
+	transition:all .2s ease-in-out
+}
+
+.filter-botton:hover
+{
+	background:#999;
+	cursor:not-allowed
+}
+
+.filter-botton.active-f
+{
+	background-color:#001f4b
+}
+
+.filter-text
+{
+	color:#000;
+	font-size:16px;
+	width:480px;
+	margin:0 auto;
+	font-family:"ArbatDi";
+	margin-top:17px
+}
+
+.filter-left img
+{
+	margin-top:5px
+}
+
+.chosen-container-single a.chosen-single
+{
+	color:#000;
+	padding:0;
+	border:none;
+	height:45px;
+	background:#fff;
+	border-radius:30px;
+	box-shadow:none;
+	line-height:45px;
+	font-size:16px;
+	border:2px solid #fff
+}
+
+.filter-item.active .chosen-container-single a.chosen-single
+{
+	border:2px solid #F7271F
+}
+
+.filter-item
+{
+	margin-right:1px
+}
+
+.filter-botton.active
+{
+	cursor:pointer
+}
+
+.home-filter-block
+{
+	position:relative;
+	background:url(../image/formbg.png) no-repeat;
+	background-size:auto 100%
+}
+
+.home-filter-block select.filter-select
+{
+	width:200px;
+}
+
+.home-filter-block ul.es-list
+{
+	width:200px
+}
+
+.home-filter-block ul.es-list li:nth-child(1)
+{
+	display:none
+}
+
+.filter-item select[disabled]
+{
+	color:#999
+}
+.home-filter-block select.filter-select
+{
+	padding:10px 20px;
+	border-radius:70px;
+	border-color:orange
+}
+
+.helparrow
+{
+	position:absolute;
+	width:50px;
+	margin-left:-50px;
+	display:none;
+	height:70px
+}
+
+.helparrow.left
+{
+	background:url(/catalog/view/image/strelka-test1.png) no-repeat 0 10px;
+	background-size:100%
+}
+
+.helparrow.right
+{
+	margin-top:-30px;
+	background:url(/catalog/view/image/strelka-test2.png) no-repeat center center;
+	background-size:100%
+}
+
+div#ajax-preloader
+{
+	position:absolute;
+	display:none;
+	background:url(../image/preloader.gif) rgba(0,0,0,0.35) center center no-repeat
+}
+
+/*OTHER*/
+
+.home-filter-block.catalog-filter .filter-right img
+{
+	height:325px
+}
+
+.home-mark-img
+{
+	width:100%;
+	max-width:178px;
+	height:70px;
+	border:1px solid #e7e7e7;
+	background:#fff;
+	border-radius:40px;
+	position:relative;
+	margin-bottom:6px;
+	margin-left:auto;
+	margin-right:auto
+}
+
+.home-mark-img img
+{
+	max-height:100%;
+	max-width:100%;
+	display:block;
+	margin:10px auto
+}
+
+.home-catalog ul li a
+{
+	text-decoration:none!important
+}
+
+
+@media (min-width: 1200px) {
+	input.es-input,.home-filter-block select.filter-select,.home-filter-block ul.es-list
+	{
+		width:250px;
+		font-size:14px;
+		line-height:20px
+	}
+}
+
+@media (max-width: 779px) {
+	.filters {width:96%; margin:0 auto;}
+	.filter-left {width:100%;}
+	.filters > div {
+		width: 32%;
+		margin: 5px 0;
+		padding: 0;
+		display: inline-block;
+	}
+	.home-filter-block select.filter-select,.filter-item input.es-input {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
+
+@media (max-width: 640px) {
+	.filters > div {
+		width:44%;
+	}
+}

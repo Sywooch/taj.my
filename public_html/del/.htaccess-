@@ -1,0 +1,24 @@
+
+
+#RewriteEngine On
+#RewriteRule ^apache-redirect-http-to-https\.html$ https://www.yoursite.com/apache-redirect-http-to-https.html [R=301,L] 
+
+
+AddDefaultCharset utf-8
+#Header always append X-Frame-Options DENY
+
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{SERVER_PORT} !^443$
+
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://hvilya-zd.com.ua/$1 [R=301,L] 
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index.php
+

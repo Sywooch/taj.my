@@ -1,0 +1,20 @@
+
+RewriteCond %{HTTPS} off
+RewriteRule (.*)$ https://ibexshop.com.ua/autoparts/$1 [R=301,L] 
+
+#https://www.sslforfree.com/
+
+<IfModule mod_php5.c>
+	php_flag short_open_tag on
+</IfModule>	
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+		
+	#RewriteCond %{HTTPS} on
+	#RewriteRule .* http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]	
+
+	#RewriteBase /autoparts/	RewriteRule ^images/productImages/(.*)$ http://77.120.224.229/$1 [NC,P]	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php [L]	</IfModule>

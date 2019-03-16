@@ -1,0 +1,17 @@
+<?if(!defined("TDM_PROLOG_INCLUDED") || TDM_PROLOG_INCLUDED!==true)die();
+$arComSets = Array(
+	"TEMPLATE" => "asd",
+	"DEFAULT_VIEW" => 0,
+	"ITEMS_ON_PAGE_CARD" => 200,
+	"ITEMS_ON_PAGE_LIST" => 50,
+	"LIST_PRICES_LIMIT" => 12,
+	"HIDE_NOPRICES" => 1,
+	"HIDE_PRICES_NOAVAIL" => 0,
+	"ALLOW_ORDER" => 0,
+	"ITEMS_SORT" => 3,
+	"SHOW_FILTER_BRANDS" => 1,
+	"FILTER_BRANDS_LETTERS_LIMIT" => 30,
+	"SHOW_ITEM_PROPS" => 1,
+	
+);
+?>

@@ -1,0 +1,46 @@
+
+.modelsdiv { min-width: 285px; width: 18.5%; display: inline-block; vertical-align: top; background-color: #ffffff!important; margin: 0px 0px 22px 0px; background-repeat: no-repeat!important; background-position: top center!important; cursor: pointer; }
+.modelsdiv:nth-child(5n) { margin: 0px 0% 22px 0px; }
+.modelsdiv:nth-child(5n):after { content: ""; clear: both; display: block; }
+
+.modelname { margin-top: 90px; text-align: center; font-weight: bold; font-size: 24px; font-family: "MagistralBlackC"; color: #55a9cb; }
+.ampick{display:block; text-align:center; background:#efefef; overflow:hidden; line-height:18px!important; text-decoration:underline!important; font-size:12px!important; padding:3px 12px 0px 12px; margin:4px 0px 0px 0px!important; color:#5e5e5e!important; font-family:Arial!important;}
+.ampick:hover{text-decoration:none!important;}
+
+/* Drop down menu */
+.ddmodel{margin:4px 0px 0px 0px; padding:0; }
+.ddmodel li{width:212px!important; text-align:center; list-style:none; float:left; font-size:12px!important; font-family:Arial!important;}
+.ddmodel li a:link, .ddmodel li a:visited{display:block; text-decoration:none; background:#efefef url(images/ddarrow.png) 9px 8px no-repeat; padding:5px 0px 5px 0px; margin:0; color:#225a9a;}
+.ddmodel li a:hover{background-color:#dadada;}
+.ddmodel li ul{width:282px!important; margin:0px 0px 0px -30px; position:absolute; display:none; border-top:1px solid #ababab; padding:0;}
+.ddmodel li ul li{display:inline; float:none;}
+.ddmodel li ul li a:link, .ddmodel li ul li a:visited{background-color:#656565; color:#ffffff; padding:9px 10px 9px 10px; background-image:none!important; font-size:11px!important; font-family:Arial!important; text-align:left; width:auto;  -webkit-box-shadow:2px 2px 5px rgba(0,0,0,0.5); box-shadow:2px 2px 5px rgba(0,0,0,0.5);}
+.ddmodel li ul li a:hover{background-color:#9b9a9a; text-shadow:1px 1px 1px #353535;}
+
+.modelall { text-align:justify;width:95%; margin:0 auto;}
+
+.modelsfilter { margin: 0 auto 10px; overflow: hidden; width: 95%; }
+.modelsfilter a, #countries-table tr{
+	transition: background-color 0.3s ease-in-out;
+	-moz-transition: background-color 0.3s ease-in-out;
+	-webkit-transition: background-color 0.3s ease-in-out;
+}
+.modelsfilter a{color:#757575!important; font-family:Arial;
+	background: url("images/filterbg.png") no-repeat 0 0px;
+	width: 36px; float: left; color: #686867; cursor: pointer; height: 35px; margin-top: 2px; font-size: 12px;
+	font-weight: bold; text-align: center; line-height: 34px; text-shadow: 0 1px 0 white; text-decoration: none;
+}
+.subModelNav.active:hover { color: #01487e; }
+.modelsdiv.active .submodels h3 a:hover { color: #001f4b; }
+.modelsfilter a.first{border-radius: 3px 0 0 3px;}
+.modelsfilter a.last{border-right: 1px solid silver; border-radius: 0 3px 3px 0;}
+.modelsfilter a:hover{background-position: -36px;}
+.modelsfilter a.active {background-position: -72px;}
+
+.modelsdiv.active { width: 100%; cursor:default;  }
+.modelsdiv.active .submodels { display: inline-block; width: 100%; margin: 0 auto; text-align: center; }
+.modelsdiv.active .submodels h3 a { padding: 5px 0; font-size: 18px; line-height: 2; color: #01487e; text-decoration: underline; }
+.modelsdiv.active .modelname { font-size: 28px; color: #333; }
+
+.submodels,.subModelNav { display: none; }
+.subModelNav.active { display: block; font-size: 20px; margin: 0 20px; cursor: pointer; text-align: center; color: #55a9cb; }
