@@ -35,6 +35,7 @@ use yii\helpers\Url;
                     <button class="btn btn--simple" id="cabinet">
                         <?= \yii\helpers\StringHelper::truncate(Yii::$app->user->identity->username ,50, '');?>
                     </button>
+                </a>
                 <?php } ?>
             </div>
         </div>
@@ -45,12 +46,12 @@ use yii\helpers\Url;
         <ul class="main-menu">
             <?php
             if (isset($menu['title'])){
-               echo "<label>".$menu['title'][0]->name."</label>";
+               echo "<label>".\Yii::t('main', 'Menu')."</label>";
             }
-            if(isset($menu['header']))
+            if(isset($menu['header'])){
             foreach($menu['header'] as $m) { ?>
               <li><a href="<?=Url::to([$m->link], true);?>"><?=$m->name?></a></li>
-            <?php } ?>
+            <?php }} ?>
         </ul>
     </div>
 </nav>

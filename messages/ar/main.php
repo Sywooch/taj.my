@@ -42,7 +42,7 @@ return [
     'WriteComment'  =>  'Write Comment',
     'OtherComments'  =>  'Other Comment',
     'ReadAllPost'   =>  'ReadAllPost',
-
+    'Menu'          =>  'القائمة',
     'PrCompare'     =>  'مقارنة المنتج',
     'PrsCompare'    =>  'قارن بين المنتجات',
     'PrFind'        =>  'Find Product',

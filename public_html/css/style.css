@@ -989,6 +989,13 @@ span.review__date i {
   .review__list__btn {
     display: flex;
   }
+  .top__buttons .btn{
+    margin: 4vw 0 0!important;
+    padding: 8px 8px!important;
+  }
+  .top__buttons .btn--green {
+    padding: 9px 8px!important;
+  }
 }
 
 /* responsive end */

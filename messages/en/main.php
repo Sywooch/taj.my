@@ -41,7 +41,7 @@ return [
     'Comments'      =>  'Comments',
     'WriteComment'  =>  'Write Comment',
     'ReadAllPost'   =>  'ReadAllPost',
-
+    'Menu'          =>  'Menu',
     'PrCompare'     =>  'Compare Product',
     'PrsCompare'     =>  'Compare Products',
     'PrFind'        =>  'Find Product',
