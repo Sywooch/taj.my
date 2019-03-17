@@ -40,6 +40,7 @@ return [
     'RecomendToFr'  =>  'Do you recommend this to your friends?',
     'Comments'      =>  'Comments',
     'WriteComment'  =>  'Write Comment',
+    'OtherComments'  =>  'Other Comment',
     'ReadAllPost'   =>  'ReadAllPost',
 
     'PrCompare'     =>  'مقارنة المنتج',

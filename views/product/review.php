@@ -155,7 +155,7 @@ use yii\helpers\Url;
                         <?php if(Yii::$app->user->isGuest) {?>
                             <?= Yii::t('main', 'Please') .' '.Html::a( Yii::t('main', 'login'), ['user/login'], ['class' => 'login-link']).' '.Yii::t('main', 'toWriteComment') ?>
                         <?php } else {?>
-                            <button class="add__comment"><?=\Yii::t('main', 'WhiteComment');?></button>
+                            <button class="add__comment"><?=\Yii::t('main', 'WriteComment');?></button>
                             <div class="new_comment" style="display:none">
                                 <div class="row">
 									<div class="col-md-9">

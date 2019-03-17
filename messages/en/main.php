@@ -48,7 +48,7 @@ return [
     'PrRrLikes'     =>  'Reviewer recommend this product',
     'PrRevOther'    =>  'Other product review',
     'PrRevOthers'   =>  'Other product reviews',
-
+    'OtherComments' =>  'Other Comments',
     'RevAdd'        =>  'Add Review',
     'RevFind'       =>  'Find Review',
     'RevNotFound'   =>  'Did not found the right?',
