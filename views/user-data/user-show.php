@@ -55,7 +55,7 @@ use yii\helpers\Html;
                             <?php foreach($data['reviews'] as $r) {?>
                                 <div class="product__list__item">
                                     <div class="product__list__item__img">
-                                        <img src="/<?= $r->getImage() ?>" alt="">
+                                        <img src="<?= $r->getImage() ?>" alt="">
                                     </div>
                                     <div class="product__info">
                                         <h2>
