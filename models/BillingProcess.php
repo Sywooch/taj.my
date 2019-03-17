@@ -20,7 +20,8 @@ class BillingProcess extends ActiveRecord
 	public function rules() { 
 		return [ 
 			[['operation'], 'string'], 
-			[['user_id','status','value'], 'integer'], 
+			[['user_id','status','value'], 'integer'],
+            [['remainder',],'integer'], //остаток по счету
 		]; 
     } 
 

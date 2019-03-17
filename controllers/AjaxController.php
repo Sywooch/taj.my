@@ -22,6 +22,7 @@ use app\models\Profile;
 use app\models\DialogMessage;
 use app\models\DialogForm;
 use app\models\DialogCreateForm;
+use function var_export;
 use Yii;
 use app\models\Product;
 use app\models\Category;
@@ -126,10 +127,18 @@ class AjaxController extends SiteController
                     'operation' =>  $model['bill'],
                     'value'     =>  $model['funds'],
                     'status'     =>  1,
+                    'remainder' => 12,
+
                 ]);
 
+
                 $user_bill = Billing::find()->where(['user_id'=> Yii::$app->user->identity->id])->one();
-                $user_bill->updateCounters(['value' => -$model['funds']]);
+
+                $billing->remainder = $user_bill->value-$model['funds']; //и это остаток по счету на каждой операции
+
+                $user_bill->updateCounters(['value' => -$model['funds']]); //остаток по счету
+
+
 
                 if($billing->validate()) {
                     $billing->save();

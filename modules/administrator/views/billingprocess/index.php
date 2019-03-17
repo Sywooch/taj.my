@@ -38,11 +38,11 @@ $this->params['breadcrumbs'][] = $this->title;
 				'format' => 'html',    
 				'value' => function ($data) {
 					if($data->billing) {
-						$r = '<span class="label label-success">'.round($data->billing->value,2).'</span> - <span class="label label-primary">'.$data->value.'</span> = ';
+						$r = '<span class="label label-success">'.round($data->remainder+$data->value,2).'</span> - <span class="label label-primary">'.$data->value.'</span> = ';
 						if($data->billing->value - $data->value > 0) {
-							$r .='<span class="label label-success">'.($data->billing->value - $data->value).'</span>';
+							$r .='<span class="label label-success">'.($data->remainder).'</span>';
 						} else {
-							$r .='<span class="label label-danger">'.($data->billing->value - $data->value).'</span>';
+							$r .='<span class="label label-danger">'.($data->remainder).'</span>';
 						}
 						
 						return $r;
