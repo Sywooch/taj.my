@@ -173,7 +173,7 @@ class UserDataController extends SiteController
             ->joinWith('author')
             ->groupBy('review.id')
             ->orderBy(['review.create_date'=> SORT_DESC])
-            ->where(['review.user_id'=>$user_id])
+            ->where(['review.user_id'=>$user_id,'review.publish'=>1])
             ->limit($limit)
             ->offset($page*$limit)
             ->all();
