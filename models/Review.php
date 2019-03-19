@@ -201,9 +201,9 @@ class Review extends ActiveRecord
 			
 			if(!$activeRole) {
 				$return
-					->onCondition(['comments.status'=>1])
-					->orOnCondition(['comments.user_id' => $user_id]);
-			} 
+					->onCondition(['comments.status'=>1]);
+//					->onCondition(['comments.user_id' => $user_id]);
+			}
 		}
 		return $return;
     }

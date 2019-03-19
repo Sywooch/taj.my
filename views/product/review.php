@@ -181,7 +181,7 @@ use yii\helpers\Url;
                                 <div class="review__list__item__top">
 									<div class="avatar">
 										<a href="<?=Url::to(['users/'.$c['author']->user_id])?>">
-											<img src="<?=$c->author->getAvatar()?>" alt=""><span><?=$c['author']['name']?></span>
+<!--											<img src="--><?//=$c->author->getAvatar()?><!--" alt=""><span>--><?//=$c['author']['name']?><!--</span>-->
 										</a>
 									</div>
                                     <div class="review__list__btn" attr-id="<?=$c->id?>">

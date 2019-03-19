@@ -2,6 +2,8 @@
 namespace app\controllers;
 
 use app\models\ProductForm;
+use function count;
+use function var_export;
 use Yii;
 use app\models\Category;
 use app\models\Product;
@@ -50,7 +52,6 @@ class ProductController extends SiteController
     public function actionReview($product_link, $link) {
 
         if($data['review'] = $this->getProductReview($product_link,$link)) {
-			
 			if($data['review']['reviewComment']) {
 				$comment_ids = [];
 				foreach($data['review']['reviewComment'] as $rC) {
@@ -66,6 +67,8 @@ class ProductController extends SiteController
 					$data['UserCommentLikes'] = [];
 				}
 			}
+//            echo '<pre>';
+//			var_export($data['review']['reviewComment']);die;
             $menu = $this->getMenu();
             $data['blocks'] = $this->getBlocks(['productMain','all']);
 
