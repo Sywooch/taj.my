@@ -86,7 +86,7 @@ class ProductController extends SiteController
             $post->updateCounters(['views' => 1]);
 			
 			$data['userRole'] = $this->getCheckActiveRole(); 
-			
+//			echo '<pre>'; var_export($data);
             return $this->render('review', compact(['menu', 'data']));
         } else {
             $this->redirect('/',302);

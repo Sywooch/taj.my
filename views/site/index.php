@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
-
+//echo '<pre>';
+//var_export($data);die;
 ?>
 <?=$this->render('/site/content/header', compact('menu')); ?>
 <main>

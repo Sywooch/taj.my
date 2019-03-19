@@ -8,6 +8,7 @@
 
 namespace app\models;
 
+use function var_export;
 use Yii;
 use yii\db\ActiveRecord;
 
@@ -113,7 +114,8 @@ class Review extends ActiveRecord
 
     public function getReviewContentFirst()
     {
-        return $this->hasOne(ReviewContent::class, ['review_id' => 'id'])->alias('rc')->orderBy('rc.sort')->andOnCondition(['rc.lang'=>Yii::$app->language]);
+
+        return $this->hasOne(ReviewContent::class, ['review_id' => 'id'])->alias('rc')->orderBy('rc.sort');
     }
 
     public function getReviewContent()

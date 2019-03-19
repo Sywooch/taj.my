@@ -1,5 +1,6 @@
 <?php
 namespace app\controllers;
+use function var_export;
 use Yii;
 use app\models\Review;
 use yii\web\Controller;
@@ -104,7 +105,7 @@ class ReviewsController extends Review
     }
 
     public function getReview($limit=5,$page=0) {
-		if($this->getCheckActiveRole()) {
+		if($this->getCheckActiveRole()) { //проверяет юзера на роль админа
 			$r = Review::find()
 				->alias('review')
 				->joinWith('product')
@@ -131,7 +132,7 @@ class ReviewsController extends Review
 				->offset($page*$limit)
 				->all();
 		}
-			
+//		var_export(Yii::$app->language);die;
         return $r;
     }
 
