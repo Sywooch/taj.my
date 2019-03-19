@@ -206,7 +206,7 @@ table.table.compare td { min-width: 280px; }
 .dialog__list .message { min-width: 400px; }
 .dialog__list .count-msg {padding-right:12px;padding-left:12px;float:right;}
 
-.dialog_box { clear:both; display: inline-block; max-width: 80%; border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin: 10px 0; text-indent: 20px; }
+.dialog_box { clear:both; display: inline-block; width: 80%; border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin: 10px 0; text-indent: 20px; }
 
 .dialog_box.from { float: right; background: #eee; }
 

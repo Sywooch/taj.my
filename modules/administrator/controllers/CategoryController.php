@@ -26,6 +26,7 @@ class CategoryController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+
         ];
     }
 

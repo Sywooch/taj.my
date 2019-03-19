@@ -3,7 +3,12 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 ?>
+
 <?=$this->render('/site/content/header', compact('menu')); ?>
+<?php
+//echo '<pre>';
+//var_export($data['dialog']['dialogMessage']);die;
+?>
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
@@ -32,7 +37,6 @@ use yii\widgets\ActiveForm;
 					</div>
 					<div class="dialog__content">
 						<?php foreach($data['dialog']['dialogMessage'] as $m) { ?>
-						    
 							<div><div class="dialog_box<?php if($m->direction == 1) echo ' from';?>">
 								<?=$m->content?>
 								<div class="sub_dialog_row">
