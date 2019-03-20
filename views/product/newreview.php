@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
                     'product'       => $data['product'],
                 ])?>
 
-                <h1 class="pagename"><?=$data['product']->getTitle();?></h1>
+                <h1 class="pagename" ><?=$data['product']->getTitle();?></h1>
                 <div class="content">
                     <div class="review-container">
                         <div class="product__list__item">

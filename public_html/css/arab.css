@@ -1,0 +1,6 @@
+h1.pagename, input#search, .review__inner p{
+    text-align: right;
+}
+.main-menu, .footer__menu{
+    justify-content: flex-end;
+}

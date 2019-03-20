@@ -22,7 +22,7 @@ return [
 
     'SendReport'    =>  'Report a violation',
     'PostedOn'      =>  'Posted on',
-
+    'footer_message'=>  'لا يُسمح بالنسخ إلا بإذن كتابي من إدارة الموقع. اتفاقية المستخدم. إنضم لبرنامج. لطرح الأسئلة حول الموقع ، اكتب info@tajrobtak.com. الإعلان على الموقع.',
     'Search'        =>  'بحث',
     'AddReview'     =>  'إضافة مراجعة',
     'EN'            =>  'EN',

@@ -12,6 +12,14 @@ use app\assets\AppAsset;
 use yii\helpers\Url;
 
 AppAsset::register($this);
+//$langForScript = Yii::$app->language;
+//$script = <<< JS
+//    if("$langForScript"=="ar"){
+//        document.querySelector("h1.pagename").style.textAlign = "right";
+//    }
+//JS;
+////маркер конца строки, обязательно сразу, без пробелов и табуляции
+//$this->registerJs($script);
 ?>
 
 <?php $this->beginPage() ?><!DOCTYPE html>

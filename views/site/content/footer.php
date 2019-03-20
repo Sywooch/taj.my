@@ -24,8 +24,7 @@ use yii\helpers\Url; ?>
     </div>
     <div class="container">
         <div class="footer__links">
-            <span>“Copying is allowed only with the written permission of the site administration. <a href="/information/politikakonfidentsialnosti" title="User Agreement">User Agreement</a>. <a href="/information/pp" title="Affiliate program">Affiliate program</a>. 
-			For questions about the site, write to <a href="mailto:info@tajrobtak.com">info@tajrobtak.com</a>. <a href="/information/advert" title="Advertising on the website">Advertising on the website</a>.</span>
+            <span><?= Yii::t('main', 'footer_message')?></span>
         </div>
     </div>
 </footer>

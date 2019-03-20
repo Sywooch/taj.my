@@ -22,7 +22,8 @@ return [
 
     'SendReport'    =>  'Report a violation',
     'PostedOn'      =>  'Posted on',
-
+    'footer_message'=>  'Copying is allowed only with the written permission of the site administration. <a href="/information/politikakonfidentsialnosti" title="User Agreement">User Agreement</a>. <a href="/information/pp" title="Affiliate program">Affiliate program</a>.
+			For questions about the site, write to <a href="mailto:info@tajrobtak.com">info@tajrobtak.com</a>. <a href="/information/advert" title="Advertising on the website">Advertising on the website</a>.',
     'Search'        =>  'Search',
     'AddReview'     =>  'Add review',
     'EN'            =>  'EN',
