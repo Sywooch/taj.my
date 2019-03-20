@@ -28,7 +28,8 @@
         "vova07/yii2-fileapi-widget": "*",
         "letyii/yii2-rbac-cached": "dev-master",
         "mihaildev/yii2-ckeditor": "*",
-        "himiklab/yii2-recaptcha-widget": "*"
+        "himiklab/yii2-recaptcha-widget": "*",
+		"ptheofan/yii2-meta": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

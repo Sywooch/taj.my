@@ -17,6 +17,9 @@ $config = [
 		'authManager' => [
             'class' => 'yii\rbac\DbManager',
 		],
+        'meta' => [
+            'class' => 'ptheofan\meta\Meta',
+        ],
         'authClientCollection' => [
             'class'   => \yii\authclient\Collection::className(),
             'clients' => [

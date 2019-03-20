@@ -1,6 +1,15 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+/*---------------META TAGS------------------------*/
+Yii::$app->meta->setMeta([
+        'description' => $data['review']['product']['description'],
+        'og:type'=>'profile',
+        'title'=> $this->title,
+        'og:image'=>"image",
+        'og:site_name'=>'Tajrobtak'
+    ]);
+/*---------------META TAGS------------------------*/
 ?>
 <?=$this->render('/site/content/header', compact('menu')); ?>
 <main>
@@ -181,7 +190,7 @@ use yii\helpers\Url;
                                 <div class="review__list__item__top">
 									<div class="avatar">
 										<a href="<?=Url::to(['users/'.$c['author']->user_id])?>">
-<!--											<img src="--><?//=$c->author->getAvatar()?><!--" alt=""><span>--><?//=$c['author']['name']?><!--</span>-->
+											<img src="<?=$c->author->getAvatar()?>" alt=""><span><?=$c['author']['name']?></span>
 										</a>
 									</div>
                                     <div class="review__list__btn" attr-id="<?=$c->id?>">
