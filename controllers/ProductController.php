@@ -67,13 +67,10 @@ class ProductController extends SiteController
 					$data['UserCommentLikes'] = [];
 				}
 			}
-//            echo '<pre>';
-//			var_export($data['review']['reviewComment']);die;
             $menu = $this->getMenu();
             $data['blocks'] = $this->getBlocks(['productMain','all']);
 
             $data['products'] = $this->getProduct($data['review']['product']['category_id']);
-			
 			$session = Yii::$app->session;
 			if(isset($session['compare'])) {
 				$data['compare'] = $session['compare'];
@@ -184,6 +181,7 @@ class ProductController extends SiteController
                 return false;
             }
         }
+
 
     }
 

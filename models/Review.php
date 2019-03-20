@@ -8,9 +8,12 @@
 
 namespace app\models;
 
+use function count;
+use function var_dump;
 use function var_export;
 use Yii;
 use yii\db\ActiveRecord;
+use yii\helpers\UnsetArrayValue;
 
 class Review extends ActiveRecord
 {
@@ -51,7 +54,7 @@ class Review extends ActiveRecord
 			return [
 				[['product_id','title_en','title_ar'],'required'],
 				[['recommend_status','link','rank','cost'],'string'],
-				[['img_main'], 'file', 'skipOnEmpty' => false, 'extensions' => 'gif, jpg, png'],
+				[['img_main'], 'file', 'skipOnEmpty' => true, 'extensions' => 'gif, jpg, png, jpeg'],
 			];
 		}
     }
@@ -214,11 +217,11 @@ class Review extends ActiveRecord
     }
 
     public function getImage() {
-        if($this->img_main!='') {
+        if($this->img_main!='' and $this->img_main!="image/no_product.png") {
             return '/images/reviews/'. $this->user_id.'/' .$this->id .'/'. $this->img_main;
         }
         elseif($this->product['image']!='') return $this->product->image;
-        else return '/image/products/no-image.png';
+        else return 'image/no_product.png';
     }
 
     public function getStatus() {
@@ -279,21 +282,32 @@ class Review extends ActiveRecord
 		} elseif(isset($this['reviewContentSub'])&&$this['reviewContentSub']) {
 			$content_list = $this['reviewContentSub'];
 		} else $content_list = false;
-		
-		if($content_list) {
+//        echo '<pre>';
+//        var_export($content_list);die;
+		if($content_list) { //если существует отзыв (текст отзыва)
 			$content = [];
+			/*
+			 * Сноска
+			 * $this['reviewSubImage'] - этот объект не дает удалить значение массива
+			 * т.е. не работает функция unset
+			 * скорее всего свойства как то защищены от удаления
+			 * */
+			$subImageArray = $this['reviewSubImage'];
 			foreach ($content_list as $c) {
-				$content[] = '<p>' . $c->content . '</p>';
-				foreach ($this['reviewSubImage'] as $k=>$img) {
+				$content[] = '<p>' . $c->content . '</p>';//кажду строку контента оборачивает в теги
+				foreach ($subImageArray as $k=>$img) {//теперь бежит по изображениям которые добавлены в пост
 					if ($img['content_index_after'] <= $c->sort) {
-						$content[] = '<img src="/images/reviews/' . $this['user_id'] . '/' . $this['id'] . $img->image . '" alt="">';
-						unset($this['reviewSubImage'][$k]);
+					    $lastRow = array_pop($content); //сохраняем последний элемент массива, и удаляем его из массива
+						$content[] = '<img src="/images/reviews/' . $this['user_id'] . '/' . $this['id'] . $img->image . '" alt="">';           //в конец добавляем картинку
+						$content[] = $lastRow; //и добавляем последнюю строку текста
+                        unset($subImageArray[$k]);
 					}
 				}
 			}
-			foreach ($this['reviewSubImage'] as $k=>$img) {
+			foreach ($subImageArray as $k=>$img) {
 				$content[] = '<img src="/images/reviews/' . $this['user_id'] . '/' . $this['id'] . $img->image . '" alt="">';
 			}
+//			var_dump($this['reviewSubImage']);
 			
 			foreach ($content as $c) {
 				$return .=  $c;

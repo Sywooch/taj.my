@@ -15,6 +15,8 @@ use app\models\Category;
 use app\models\ReviewContent;
 use app\models\ReviewLikes;
 use app\models\ReviewSubImage;
+use const false;
+use function var_export;
 use Yii;
 use app\models\UploadSubImageForm;
 use app\models\Support;
@@ -87,15 +89,22 @@ class UploadController extends SiteController
             $path = 'images/products/'.$model->category_id;
             FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
             
-            $model->image->saveAs($path . '/' .$link.'.'.$model->image->extension);
-
+            if($model->image){
+                $model->image->saveAs($path . '/' .$link.'.'.$model->image->extension,false);
+                $imagePath = '/'.$path . '/' .$link.'.'.$model->image->extension;
+            }else{
+                $imagePath = '/image/no_image.png';
+            }
+//            var_export($model->image);die;
 			if($model->validate()||true) {
 				$product = new Product();
 				$product->title_en = $model->title;
 				$product->title_ar = $model->title;
 				$product->link	=	$link;
 				$product->description = $model->description;
-				$product->image = '/'.$path . '/' .$link.'.'.$model->image->extension;
+
+				$product->image = $imagePath;
+
 				$product->category_id	= $model->category_id;
 				$product->created_by_user = Yii::$app->user->identity->getId();
 				$product->save();
@@ -169,8 +178,12 @@ class UploadController extends SiteController
             if(Yii::$app->user->identity->id==4) { 
 				$model->publish=1;
 			}
-			
-            $model->img_main = UploadedFile::getInstance($model, 'img_main');
+
+			if($img = UploadedFile::getInstance($model, 'img_main')){
+                $model->img_main = $img;
+            }
+//             = UploadedFile::getInstance($model, 'img_main');
+//            var_export($model->img_main);die;
             if ($model->validate()) {
                 $model->save(false);
 
@@ -184,7 +197,10 @@ class UploadController extends SiteController
                 $path = 'images/reviews/'.Yii::$app->user->identity->id.'/'.$id;
                 FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
 
-                $model->img_main->saveAs($path . '/' .$model->img_main->baseName.'.'.$model->img_main->extension);
+                if($model->img_main){
+                    $model->img_main->saveAs($path . '/' .$model->img_main->baseName.'.'.$model->img_main->extension);
+                }
+
 
                 foreach($content as $key=>$c) {
                     if(isset($c->type)&&isset($c->value)) {
@@ -194,6 +210,8 @@ class UploadController extends SiteController
                                 \Yii::$app->basePath.'/public_html/images/reviews/'.Yii::$app->user->identity->id.'/temp/'.$filename,
                                 \Yii::$app->basePath.'/public_html/images/reviews/'.Yii::$app->user->identity->id.'/'.$id.'/'.$filename
                             );
+//                            var_export(\Yii::$app->basePath.'/public_html/images/reviews/'.Yii::$app->user->identity->id.'/'.$id.''.$filename);echo "\r\n";
+
 
                             $subImages[] = [
                                 'review_id' => $id,
@@ -356,7 +374,12 @@ class UploadController extends SiteController
             ->one();
 
         $model->count_reviews = count($reviews);
-        $model->avg_rank = round($summ_rank/$count, 0);
+        if($count==0){
+            $model->avg_rank = 0;
+        }else{
+            $model->avg_rank = round($summ_rank/$count, 0);
+
+        }
 
         $model->save();
     }

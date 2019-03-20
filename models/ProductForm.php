@@ -24,11 +24,15 @@ class ProductForm extends Model
         return [
             [
                 ['image'], 'file',
-                'skipOnEmpty' => false,
+                'skipOnEmpty' => true,
                 'extensions' => 'gif, jpg, png, jpeg',
             ],
             [['title', 'category_id'],'required'],
             [['description'],'string']
         ];
     }
+    public function defaultImage() {
+
+    }
+
 }
