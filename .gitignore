@@ -14,6 +14,8 @@ Thumbs.db
 
 # composer vendor dir
 /vendor
+!vendor/budyaga
+!vendor/ptheofan
 
 # composer itself is not needed
 composer.phar
