@@ -81,6 +81,12 @@ h2 {
   line-height: 1.6;
   color: #333;
 }
+h2 a{
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #333;
+}
 h4{
   font-size: 19px;
   font-weight: 400;
@@ -997,7 +1003,16 @@ span.review__date i {
     padding: 9px 8px!important;
   }
 }
-
+.link-item-img{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link-product-review:hover {
+  text-decoration: none;
+}
 /* responsive end */
 .content .promotion__item {display:none;}
 .promotion__item { background: url(/image/top_logo.png) no-repeat top center;position:relative; }
