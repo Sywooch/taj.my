@@ -37,7 +37,7 @@ use yii\helpers\Url;
 						<?php foreach($data['products'] as $p){ ?>
 							<div class="product__list__item">
 								<div class="product__list__item__img">
-                                    <a class="link-item-img" href="<?=Url::to(['product/addreview','category_link'=>$p['category']->link,'link'=>$p->link,'new'=>'addreview'], true);?>"><img src="<?=$p->image;?>" alt=""></a>
+                                    <a class="link-item-img" href="<?=Url::to(['product/product','category_link'=>$p['category']->link,'link'=>$p->link], true);?>"><img src="<?=$p->image;?>" alt=""></a>
 
 								</div>
 								<div class="product__info">

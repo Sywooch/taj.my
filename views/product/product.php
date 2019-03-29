@@ -62,12 +62,14 @@ use yii\helpers\Url;
                         foreach ($data['productReviews'] as $r) { ?>
                             <div class="product__list__item">
                                 <div class="product__list__item__img">
-                                    <img src="<?= $r->getImage(); ?>" alt="">
+                                    <a href="<?= Url::to(['product/review', 'link' => $r->link, 'product_link' => $r['product']->link]); ?>">
+                                        <img src="<?= $r->getImage(); ?>" alt="">
+                                    </a>
                                 </div>
                                 <div class="product__info">
                                     <h2>
 										<?=$r->getStatus()?>
-										<?= $r->getTitle() ?>
+										<a href="<?= Url::to(['product/review', 'link' => $r->link, 'product_link' => $r['product']->link]); ?>"><?= $r->getTitle() ?></a>
 									</h2>
 
                                     <div class="product__social">
@@ -94,10 +96,12 @@ use yii\helpers\Url;
                                         </div>
                                     </div>
                                     <div class="product__review">
-                                    <span>
-                                        <?php
-                                        if (isset($r->reviewContentFirst)) echo $r->reviewContentFirst->getLimitedContent(500); ?>
-                                    </span>
+                                        <a href="<?= Url::to(['product/review', 'link' => $r->link, 'product_link' => $r['product']->link]); ?>">
+                                            <span>
+                                                <?php
+                                                if (isset($r->reviewContentFirst)) echo $r->reviewContentFirst->getLimitedContent(500); ?>
+                                            </span>
+                                        </a>
                                         <a href="<?= Url::to(['product/review', 'link' => $r->link, 'product_link' => $r['product']->link]); ?>">
                                             <button class="readmore"><?= \Yii::t('main', 'RevRead') ?></button>
                                         </a>

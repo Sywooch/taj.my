@@ -323,6 +323,9 @@ main .container{
   color: #555454;
   font-weight: 300;
 }
+.product__review a:hover{
+  text-decoration: none;
+}
 button.readmore {
   display: block;
   background-color: #ce1126;
