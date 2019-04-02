@@ -16,6 +16,7 @@ Thumbs.db
 /vendor
 !vendor/budyaga
 !vendor/ptheofan
+!vendor/dektrium
 
 # composer itself is not needed
 composer.phar
