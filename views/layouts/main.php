@@ -18,7 +18,7 @@ AppAsset::register($this);
 //        document.querySelector("h1.pagename").style.textAlign = "right";
 //    }
 //JS;
-////������ ����� ������, ����������� �����, ��� �������� � ���������
+////маркер конца строки, обязательно сразу, без пробелов и табуляции
 //$this->registerJs($script);
 ?>
 
@@ -42,7 +42,7 @@ AppAsset::register($this);
         });
     </script>
 
-<!--    ���������� ������ ������-->
+<!--    устаревшая версия адсенс-->
 <!--    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
 <!--    <script>-->
 <!--      (adsbygoogle = window.adsbygoogle || []).push({-->
@@ -58,7 +58,7 @@ AppAsset::register($this);
 <!--	</script>-->
 
 
-<!--    ���� ���-->
+<!--    Гугл тэг-->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136313284-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -68,34 +68,43 @@ AppAsset::register($this);
         gtag('config', 'UA-136313284-1');
     </script>
 
-    <!--    �������-->
+    <!--    метрика-->
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(52815142, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/52815142" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 </head>
-<?php $this->beginBody() ?>
-<?php $menu=$this->params['menu'];
-?>
 <?php
-
-       echo $this->render('/site/content/header', compact('menu'));
-
+/*Начало документа*/
+$this->beginBody();
+/* Определяем сайдбар. для того чтобы не показывать его на некоотрых страницах */
+$sidebar = "
+        <div class=\"sidebar\">
+            <div class=\"promotion__item promotion__item--square\"></div>
+            <div class=\"promotion__item promotion__item--square\"></div>
+            <div class=\"promotion__item promotion__item--square\"></div>
+            <div class=\"promotion__item promotion__item--square\"></div>
+            <div class=\"promotion__item promotion__item--square\"></div>
+        </div>";
+/*Определяем на каких страницах его не показывать*/
+if(Yii::$app->controller->route=="user/security/login"){
+    $sidebar="";
+}
+/*Устанавливаем параметр меню*/
+$menu=$this->params['menu'];
 ?>
+
+
+<!--Сам шаблон-->
+<?= $this->render('@app/views/site/content/header', compact('menu'));?>
 <main>
     <div class="container">
         <div class="center">
             <?= $content ?>
         </div>
-        <div class="sidebar">
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-        </div>
+        <?=$sidebar?>
     </div>
 </main>
-<?=$this->render('/site/content/footer', compact('menu')); ?>
+<?=$this->render('@app/views/site/content/footer', compact('menu')); ?>
 <?php $this->endBody() ?>
 </html>
 <?php $this->endPage() ?>
