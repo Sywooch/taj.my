@@ -75,9 +75,12 @@ AppAsset::register($this);
 </head>
 <?php $this->beginBody() ?>
 <?php $menu=$this->params['menu'];
-//var_export($this->params);die;
 ?>
-<?=$this->render('/site/content/header', compact('menu')); ?>
+<?php
+
+       echo $this->render('/site/content/header', compact('menu'));
+
+?>
 <main>
     <div class="container">
         <div class="center">
@@ -92,7 +95,7 @@ AppAsset::register($this);
         </div>
     </div>
 </main>
-<?//=$this->render('/site/content/footer', compact('menu')); ?>
+<?=$this->render('/site/content/footer', compact('menu')); ?>
 <?php $this->endBody() ?>
 </html>
 <?php $this->endPage() ?>
