@@ -13,7 +13,7 @@ $this->title = $name;
 $menu['header'] = Menu::find(['name','link'])->orderBy(['sort'=>SORT_ASC])->where(['lang'=> Yii::$app->language, 'position'=>'header' ])->all();
 $menu['footer'] = Menu::find(['name','link'])->orderBy(['sort'=>SORT_ASC])->where(['lang'=> Yii::$app->language, 'position'=>'footer' ])->all();
 ?>
-<?=$this->render('/site/content/header', compact('menu')); ?>
+<?//=$this->render('/site/content/header', compact('menu')); ?>
 <div class="container">
         <div class="site-error">
 
@@ -31,4 +31,4 @@ $menu['footer'] = Menu::find(['name','link'])->orderBy(['sort'=>SORT_ASC])->wher
             </p>
         </div>
 </div>
-<?=$this->render('/site/content/footer', compact('menu')); ?>
+<?//=$this->render('/site/content/footer', compact('menu')); ?>

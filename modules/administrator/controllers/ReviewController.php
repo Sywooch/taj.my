@@ -66,7 +66,9 @@ class ReviewController extends Controller
     public function actionCreate()
     {
         $model = new Review();
-
+//
+//        echo "<pre>";
+//        var_export($model);die;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -86,7 +88,8 @@ class ReviewController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-		
+//        echo "<pre>";
+//        var_export($model);die;
 		if(Yii::$app->request->get('setstatus')>0) {
 			$model->publish = Yii::$app->request->get('setstatus');
 			if($model->save())

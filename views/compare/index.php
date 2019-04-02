@@ -1,10 +1,10 @@
 <?php
 use yii\helpers\Url;
 ?>
-<?=$this->render('/site/content/header', compact('menu')); ?>
-<main>
-    <div class="container">
-        <div class="center">
+<?//=$this->render('/site/content/header', compact('menu')); ?>
+<!--<main>-->
+<!--    <div class="container">-->
+<!--        <div class="center">-->
             <h1><?=\Yii::t('main', 'PrsCompare');?></h1>
             <?php if(count($data['products'])>0) { ?>
                 <table class="table compare">
@@ -81,15 +81,15 @@ use yii\helpers\Url;
 					<input class="form-control" value="" name="searchProductCompare" placeholder="Search product">
 				</div>
 			<?php } ?>
-        </div>
-        <div class="sidebar">
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-        </div>
-    </div>
-</main>
+<!--        </div>-->
+<!--        <div class="sidebar">-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</main>-->
 
 <?=$this->render('/site/content/footer', compact('menu')); ?>

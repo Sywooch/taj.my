@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use function var_export;
 use Yii;
 use yii\web\Controller;
 use yii\web\Response;
@@ -12,6 +13,7 @@ use app\models\Category;
 
 class SiteController extends Controller
 {
+    public $menu;
     /**
      * {@inheritdoc}
      */
@@ -43,7 +45,7 @@ class SiteController extends Controller
      */
     public function actionIndex($limit = 5,$page = 0)
     {
-        $menu = $this->getMenu();
+        $this->view->params['menu'] = $this->getMenu();
 
         $data['blocks'] = $this->getBlocks(['homepage','all']);
 		
@@ -57,7 +59,7 @@ class SiteController extends Controller
             'limit' => $limit,
         ];
         \Yii::$app->view->title = \Yii::t('main', 'Tajrobtak');
-        return $this->render('index', compact(['menu', 'data','blocks']));
+        return $this->render('index', compact([ 'data','blocks']));
     }
 
     /**

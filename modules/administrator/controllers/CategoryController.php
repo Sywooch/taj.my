@@ -2,6 +2,7 @@
 
 namespace app\modules\administrator\controllers;
 
+use function var_export;
 use Yii;
 use app\models\Category;
 use yii\data\ActiveDataProvider;
@@ -36,10 +37,14 @@ class CategoryController extends Controller
      */
     public function actionIndex()
     {
+//        $model=new Category();
+//        $data = Category::find()->all();
+        $data = Category::find();
         $dataProvider = new ActiveDataProvider([
-            'query' => Category::find(),
+            'query' => $data,
         ]);
-
+//        echo '<pre>';
+//        var_export($dataProvider);die;
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);

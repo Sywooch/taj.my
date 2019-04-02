@@ -74,7 +74,25 @@ AppAsset::register($this);
     <!-- /Yandex.Metrika counter -->
 </head>
 <?php $this->beginBody() ?>
-<?= $content ?>
+<?php $menu=$this->params['menu'];
+//var_export($this->params);die;
+?>
+<?=$this->render('/site/content/header', compact('menu')); ?>
+<main>
+    <div class="container">
+        <div class="center">
+            <?= $content ?>
+        </div>
+        <div class="sidebar">
+            <div class="promotion__item promotion__item--square"></div>
+            <div class="promotion__item promotion__item--square"></div>
+            <div class="promotion__item promotion__item--square"></div>
+            <div class="promotion__item promotion__item--square"></div>
+            <div class="promotion__item promotion__item--square"></div>
+        </div>
+    </div>
+</main>
+<?//=$this->render('/site/content/footer', compact('menu')); ?>
 <?php $this->endBody() ?>
 </html>
 <?php $this->endPage() ?>

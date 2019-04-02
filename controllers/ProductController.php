@@ -110,7 +110,8 @@ class ProductController extends SiteController
 			}
 			
             if ($data['product'] = $this->getProduct($id, $link, 5)) {
-
+//                echo '<pre>';
+//                var_export($data['product']);die;
                 $data['pagination'] = [
                         'path' => 'products/' . $link,
                         'count' => $this->getProductCount($id),

@@ -2,6 +2,7 @@
 
 namespace app\modules\administrator\controllers;
 
+use function var_export;
 use Yii;
 use app\models\Product;
 use yii\data\ActiveDataProvider;
@@ -88,7 +89,6 @@ class ProductController extends Controller
 		$connection->createCommand()->update('yy_reviews', ['product_id' => NULL], ' product_id ='.$id)->execute();
 
         $model = $this->findModel($id);
-		
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }

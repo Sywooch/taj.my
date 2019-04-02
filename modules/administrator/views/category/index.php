@@ -42,7 +42,9 @@ $this->params['breadcrumbs'][] = $this->title;
 				'value' => function($data) {
 					if($data->parent_id>0) {
 						$parent = Category::find()->where(['id'=>$data->parent_id])->one();
-						
+//						$test=  $parent->getName();
+//                        echo '<pre>';
+//						return var_export($data->title_en.get_class_methods($parent));
 						return '<a href="/adminpanel/category/update?id='.$data->parent_id.'">'.$parent->getName().' <b>(ID:'.$data->parent_id.')</b></a>';
 					} else {
 						return '<span class="label label-success">Main</span>';

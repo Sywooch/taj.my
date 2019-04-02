@@ -2,9 +2,9 @@
 use yii\helpers\Url;
 ?>
 <?=$this->render('/site/content/header', compact('menu')); ?>
-<main>
-    <div class="container">
-        <div class="center">
+<!--<main>-->
+<!--    <div class="container">-->
+<!--        <div class="center">-->
             <div class="info">
                 <?php foreach($data['blocks'] as $b) { ?>
                     <div class="info__item">
@@ -74,14 +74,14 @@ use yii\helpers\Url;
 			<h2><?=\Yii::t('main', 'RevsNoFeed');?></h2>
 		<?php } ?>
         </div>
-        <div class="sidebar">
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-            <div class="promotion__item promotion__item--square"></div>
-        </div>
-    </div>
-</main>
+<!--        <div class="sidebar">-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--            <div class="promotion__item promotion__item--square"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</main>-->
 
 <?=$this->render('/site/content/footer', compact('menu')); ?>
