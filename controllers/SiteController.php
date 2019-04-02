@@ -89,6 +89,7 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
+        $this->view->params['menu'] = $this->getMenu();
         return $this->render('about');
     }
 
