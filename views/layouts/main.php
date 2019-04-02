@@ -85,8 +85,14 @@ $sidebar = "
             <div class=\"promotion__item promotion__item--square\"></div>
             <div class=\"promotion__item promotion__item--square\"></div>
         </div>";
+//echo Yii::$app->controller->route;die;
 /*Определяем на каких страницах его не показывать*/
-if(Yii::$app->controller->route=="user/security/login"){
+$r = Yii::$app->controller->route;
+if(
+        $r=="user/security/login" or
+        stristr($r,"user-data")!==false //false если не найдет user-data в строке
+
+){
     $sidebar="";
 }
 /*Устанавливаем параметр меню*/
@@ -98,9 +104,9 @@ $menu=$this->params['menu'];
 <?= $this->render('@app/views/site/content/header', compact('menu'));?>
 <main>
     <div class="container">
-        <div class="center">
+
             <?= $content ?>
-        </div>
+
         <?=$sidebar?>
     </div>
 </main>
